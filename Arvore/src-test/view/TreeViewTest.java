@@ -17,7 +17,6 @@ public class TreeViewTest {
 		tree.insertNode(149);
 		tree.insertNode(190);
 		tree.insertNode(189);
-//		tree.insertNode(130);
 		tree.insertNode(200);
 		
 		
@@ -25,6 +24,7 @@ public class TreeViewTest {
 		tree.insertNode(50);
 		tree.insertNode(60);
 		tree.insertNode(61);
+		tree.insertNode(62);
 		tree.insertNode(59);
 		tree.insertNode(20);
 		tree.insertNode(21);

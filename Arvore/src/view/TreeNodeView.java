@@ -16,27 +16,32 @@ public class TreeNodeView extends Canvas {
 	
 	public TreeNodeView(Tree tree) {
 		this.tree = tree;
-		calcularLarguraEsquerda(tree.getRoot());
-		calcularLarguraDireita(tree.getRoot());
+		larguraEsquerda = calcularLarguraEsquerda(tree.getRoot());
+		larguraEsquerda += calcularLarguraDireita(tree.getRoot().getRightNode());
+		larguraDireita = calcularLarguraDireita(tree.getRoot());
 		setSize(larguraDireita + larguraEsquerda + 300, 800);
 	}
 	
-	private void calcularLarguraEsquerda(TreeNode treeNode) {
-		if (treeNode.getLeftNode() != null) {
-			larguraEsquerda += 120;
-			calcularLarguraEsquerda(treeNode.getLeftNode());
+	private int calcularLarguraEsquerda(TreeNode treeNode) {
+		int larguraEsquerda = 0;
+		
+		if (treeNode != null) {
+			larguraEsquerda += calcularLarguraEsquerda(treeNode.getLeftNode());
+//			larguraEsquerda += calcularLarguraDireita(treeNode.getRightNode());
 		}
 		
-		larguraEsquerda += 120;
+		return larguraEsquerda + 180;
 	}
 	
-	private void calcularLarguraDireita(TreeNode treeNode) {
-		if (treeNode.getRightNode() != null) {
-			larguraDireita += 120;
-			calcularLarguraDireita(treeNode.getRightNode());
+	private int calcularLarguraDireita(TreeNode treeNode) {
+		int larguraDireita = 0;
+		
+		if (treeNode != null) {
+			larguraDireita += calcularLarguraDireita(treeNode.getRightNode());
+//			larguraDireita += calcularLarguraEsquerda(treeNode.getLeftNode());
 		}
 		
-		larguraDireita += 120;
+		return larguraDireita + 180;
 	}	
 	
 	
@@ -48,7 +53,7 @@ public class TreeNodeView extends Canvas {
 		g.drawString(Integer.toString(root.getData()), larguraEsquerda + 10, 45);	
 		
 		desenharTreeNodeEsquerda(g, root.getLeftNode(), larguraEsquerda, 40, larguraEsquerda / 2);
-		desenharTreeNodeDireita(g, root.getRightNode(), larguraEsquerda, 40, larguraEsquerda / 2);		
+		desenharTreeNodeDireita(g, root.getRightNode(), larguraEsquerda, 40, larguraDireita / 2);		
 	}
 
 	private void desenharTreeNodeEsquerda(Graphics g, TreeNode leftTreeNode, int ultimoX, int ultimoY, int tamanhoAresta) {
