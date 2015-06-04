@@ -8,18 +8,24 @@ public class TreeViewTest {
 
 	public static void main(String[] args) {
 		Tree tree = new Tree();
-		tree.insertNode(80);
-		tree.insertNode(79);
-		tree.insertNode(78);
-		tree.insertNode(77);
-		tree.insertNode(76);
-		tree.insertNode(75);
-		tree.insertNode(74);
-		tree.insertNode(73);
+		tree.insertNode(100);
+		
+		//Sub arvore a direita da raiz
+		tree.insertNode(300);
+		tree.insertNode(180);
+//		tree.insertNode(130);
+		tree.insertNode(200);
+		
+		
+		//Sub arvore a esquerda da raiz
+		tree.insertNode(50);
+		tree.insertNode(60);
+		tree.insertNode(59);
+		tree.insertNode(20);
+		tree.insertNode(21);
 		
 		TreeView representacaoGrafica = new TreeView(tree);
 		representacaoGrafica.exibir();
 	}
 }
-
 
