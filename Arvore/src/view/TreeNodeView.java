@@ -47,39 +47,40 @@ public class TreeNodeView extends Canvas {
 		g.setColor(Color.BLACK);
 		g.drawString(Integer.toString(root.getData()), larguraEsquerda + 10, 45);	
 		
-		desenharTreeNodeEsquerda(g, root.getLeftNode(), larguraEsquerda, 40, 0);
-		desenharTreeNodeDireita(g, root.getRightNode(), larguraEsquerda, 40, 0);		
+		desenharTreeNodeEsquerda(g, root.getLeftNode(), larguraEsquerda, 40, larguraEsquerda / 2);
+		desenharTreeNodeDireita(g, root.getRightNode(), larguraEsquerda, 40, larguraEsquerda / 2);		
 	}
 
 	private void desenharTreeNodeEsquerda(Graphics g, TreeNode leftTreeNode, int ultimoX, int ultimoY, int decremento) {
 		if (leftTreeNode != null) {
-			int xFinalAresta = ultimoX - 120 + decremento;
-			int xFinalCirculo = ultimoX - 148 + decremento;
+			int xFinalAresta = ultimoX - 8 - decremento;
+			int xInicioCirculo = xFinalAresta - 20;
 			int xFinalValor = ultimoX - 136 + decremento;
 
-			desenharAresta(g, ultimoX, ultimoY + 10, xFinalAresta, ultimoY + 40);
-			desenharCirculo(g, xFinalCirculo, ultimoY + 40);
-			desenharValor(g, leftTreeNode.getData(), xFinalValor, ultimoY + 65);
+			desenharAresta(g, ultimoX + 20, ultimoY + 20, xFinalAresta, ultimoY + 40);
+			desenharCirculo(g, xInicioCirculo, ultimoY + 40);
+//			desenharValor(g, leftTreeNode.getData(), xFinalValor, ultimoY + 65);
 			
-			int proximoDecremento = decremento == 70 ? 0 : 70;
-			desenharTreeNodeEsquerda(g, leftTreeNode.getLeftNode(), ultimoX - 145 + decremento, ultimoY + 60, proximoDecremento);
-			desenharTreeNodeDireita(g, leftTreeNode.getRightNode(), ultimoX - 150 + decremento, ultimoY + 60, proximoDecremento);
+//			int proximoDecremento = decremento == 70 ? 0 : 70;
+			desenharTreeNodeEsquerda(g, leftTreeNode.getLeftNode(), xInicioCirculo, ultimoY + 60, (decremento - 30) / 2);
+			desenharTreeNodeDireita(g, leftTreeNode.getRightNode(), xInicioCirculo, ultimoY + 60, (decremento - 30) / 2);
 		}
 	}
 	
 	private void desenharTreeNodeDireita(Graphics g, TreeNode rightTreeNode, int ultimoX, int ultimoY, int decremento) {
 		if (rightTreeNode != null) {
-			int xFinalAresta = ultimoX + 160 - decremento;
-			int xFinalCirculo = ultimoX + 150 - decremento;
+			final int xFinalAresta = ultimoX + 45 + decremento;
+			final int xInicioCirculo = xFinalAresta - 20;
 			int xFinalValor = ultimoX + 162 - decremento;
 
-			desenharAresta(g, ultimoX + 40, ultimoY + 10, xFinalAresta, ultimoY + 40);
-			desenharCirculo(g, xFinalCirculo, ultimoY + 40);
-			desenharValor(g, rightTreeNode.getData(), xFinalValor, ultimoY + 65);
+			desenharAresta(g, ultimoX + 20, ultimoY + 20, xFinalAresta, ultimoY + 40);
+			desenharCirculo(g, xInicioCirculo, ultimoY + 40);
+//			desenharValor(g, rightTreeNode.getData(), xFinalValor, ultimoY + 65);
 			
-			int proximoDecremento = decremento == 70 ? 0 : 70;
-			desenharTreeNodeEsquerda(g, rightTreeNode.getLeftNode(), ultimoX + 152 - decremento, ultimoY + 60, proximoDecremento);
-			desenharTreeNodeDireita(g, rightTreeNode.getRightNode(), ultimoX + 150 - decremento, ultimoY + 60, proximoDecremento);
+//			int proximoDecremento = decremento == 70 ? 0 : 70;
+			int proximoDecremento = decremento == 30 ? 0 : 30;
+			desenharTreeNodeEsquerda(g, rightTreeNode.getLeftNode(), xInicioCirculo, ultimoY + 60, (decremento + 30) / 2);
+			desenharTreeNodeDireita(g, rightTreeNode.getRightNode(), xInicioCirculo, ultimoY + 60, (decremento + 30) / 2);
 		}
 	}
 	
