@@ -13,9 +13,10 @@ public class TreeViewTest {
 		//Sub arvore a direita da raiz
 		tree.insertNode(300);
 		tree.insertNode(180);
-		tree.insertNode(179);
+		tree.insertNode(150);
+		tree.insertNode(149);
 		tree.insertNode(190);
-//		tree.insertNode(179);
+		tree.insertNode(189);
 //		tree.insertNode(130);
 		tree.insertNode(200);
 		

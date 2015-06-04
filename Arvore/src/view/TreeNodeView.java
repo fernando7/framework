@@ -55,11 +55,11 @@ public class TreeNodeView extends Canvas {
 		if (leftTreeNode != null) {
 			int xFinalAresta = ultimoX - 8 - tamanhoAresta;
 			int xInicioCirculo = xFinalAresta - 20;
-			int xFinalValor = ultimoX - 136 + tamanhoAresta;
+			int xFinalValor = xInicioCirculo + 10;
 
 			desenharAresta(g, ultimoX + 20, ultimoY + 20, xFinalAresta, ultimoY + 40);
 			desenharCirculo(g, xInicioCirculo, ultimoY + 40);
-//			desenharValor(g, leftTreeNode.getData(), xFinalValor, ultimoY + 65);
+			desenharValor(g, leftTreeNode.getData(), xFinalValor, ultimoY + 65);
 			
 			int novoTamanhoAresta = (tamanhoAresta - 30) / 2;
 			desenharTreeNodeEsquerda(g, leftTreeNode.getLeftNode(), xInicioCirculo, ultimoY + 60, novoTamanhoAresta);
@@ -71,11 +71,11 @@ public class TreeNodeView extends Canvas {
 		if (rightTreeNode != null) {
 			final int xFinalAresta = ultimoX + 45 + tamanhoAresta;
 			final int xInicioCirculo = xFinalAresta - 20;
-			int xFinalValor = ultimoX + 162 - tamanhoAresta;
+			int xFinalValor = xInicioCirculo + 12;
 
 			desenharAresta(g, ultimoX + 20, ultimoY + 20, xFinalAresta, ultimoY + 40);
 			desenharCirculo(g, xInicioCirculo, ultimoY + 40);
-//			desenharValor(g, rightTreeNode.getData(), xFinalValor, ultimoY + 65);
+			desenharValor(g, rightTreeNode.getData(), xFinalValor, ultimoY + 65);
 			
 			int novoTamanhoAresta = (tamanhoAresta + 30) / 2;
 			desenharTreeNodeEsquerda(g, rightTreeNode.getLeftNode(), xInicioCirculo, ultimoY + 60, novoTamanhoAresta);
