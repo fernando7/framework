@@ -7,30 +7,38 @@ import java.awt.Graphics;
 import model.Tree;
 import model.TreeNode;
 
-public class TreeNodeView extends Canvas {
+public class TreeNodeView2 extends Canvas {
 
 	private static final long serialVersionUID = -5464885177018499935L;
 	private Tree tree;
 	private int larguraEsquerda;
 	private int larguraDireita;
+	private int colunasDireitaSAE;
+	private int colunasEsquerdaSAE;
 	
-	public TreeNodeView(Tree tree) {
+	public TreeNodeView2(Tree tree) {
 		this.tree = tree;
-		larguraEsquerda = calcularLarguraEsquerda(tree.getRoot().getLeftNode());
+		larguraEsquerda = calcularLarguraEsquerda(tree.getRoot());
 		larguraDireita = calcularLarguraDireita(tree.getRoot().getRightNode());
+		System.out.println(larguraEsquerda);
 		setSize(larguraDireita + larguraEsquerda, 800);
 	}
 	
 	private int calcularLarguraEsquerda(TreeNode treeNode) {
 		int larguraEsquerda = 0;
 		
-		if (treeNode != null) {
+		if (treeNode != null && treeNode.getLeftNode() != null) {
+			colunasEsquerdaSAE--;
 			larguraEsquerda += 30;
 			larguraEsquerda += calcularLarguraEsquerda(treeNode.getLeftNode());
-			larguraEsquerda += calcularLarguraDireita(treeNode.getRightNode());
+			
+			if (treeNode.getRightNode() != null)
+				colunasDireitaSAE++;
+			
+			larguraEsquerda += calcularLarguraEsquerda(treeNode.getRightNode());
 		}
 		
-		return larguraEsquerda;
+		return colunasEsquerdaSAE;
 	}
 	
 	private int calcularLarguraDireita(TreeNode treeNode) {

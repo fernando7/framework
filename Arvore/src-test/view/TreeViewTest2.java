@@ -4,7 +4,7 @@ import model.Tree;
 
 
 
-public class TreeViewTest {
+public class TreeViewTest2 {
 
 	public static void main(String[] args) {
 		Tree tree = new Tree();
@@ -22,14 +22,15 @@ public class TreeViewTest {
 		
 		//Sub arvore a esquerda da raiz
 		tree.insertNode(50);
+		tree.insertNode(70);
+		tree.insertNode(69);
 		tree.insertNode(30);
 		tree.insertNode(29);
 		tree.insertNode(28);
 		tree.insertNode(27);
 		tree.insertNode(26);
-		
-		TreeView representacaoGrafica = new TreeView(tree);
-		representacaoGrafica.exibir();
+
+		TreeNodeView2 treeNodeView2 = new TreeNodeView2(tree);
 	}
 }
 
