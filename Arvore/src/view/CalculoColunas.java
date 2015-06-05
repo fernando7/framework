@@ -18,19 +18,18 @@ public class CalculoColunas {
 		if (treeNode != null && treeNode.getLeftNode() != null) {
 			TreeNode atual = treeNode.getLeftNode();
 			
-			if (!treeNodeRight || colunasDireitaSAE - 1 < colunasSAE) 
-				colunasSAE--;
-			
-			if (atual.getRightNode() != null) {
+			if (treeNodeRight) { 
 				colunasDireitaSAE++;
-				calcularColunasEsquerda(atual.getRightNode(), true);
 			}
 			
+			colunasSAE--;
 			calcularColunasEsquerda(atual, false);
+			calcularColunasEsquerda(treeNode.getRightNode(), true);
 		}
+		
 	}
 	
 	public int getColunasSAE() {
-		return colunasSAE;
+		return colunasSAE + colunasDireitaSAE;
 	}
 }
