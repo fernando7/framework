@@ -1,7 +1,9 @@
-package testes.testes.cdi;
+package di.client;
 
 import javax.enterprise.inject.Produces;
 import javax.inject.Singleton;
+
+import di.core.Config;
 
 public class AppConfig extends Config {
 

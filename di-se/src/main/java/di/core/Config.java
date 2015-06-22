@@ -1,4 +1,4 @@
-package testes.testes.cdi;
+package di.core;
 
 
 public class Config {

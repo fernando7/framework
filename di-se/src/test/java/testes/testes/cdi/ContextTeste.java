@@ -1,5 +1,10 @@
 package testes.testes.cdi;
 
+import di.client.AppConfig;
+import di.client.ClienteDAO;
+import di.client.ClienteDAOImpl;
+import di.core.Context;
+
 
 public class ContextTeste {
 

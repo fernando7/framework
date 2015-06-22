@@ -1,4 +1,4 @@
-package testes.testes.cdi;
+package di.core;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
