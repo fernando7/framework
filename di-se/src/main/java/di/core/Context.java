@@ -66,7 +66,6 @@ public final class Context {
 		}
 	
 		injetarDependencia(object);
-		
 		return (T) object;
 	}
 	
