@@ -5,6 +5,8 @@ public class TreeNode {
 	private TreeNode leftNode;
 	private TreeNode rightNode;
 	private int data;
+	private int alturaSae;
+	private int alturaSad;
 	
 	public TreeNode(int nodeData)  {
 		data = nodeData;
@@ -18,13 +20,22 @@ public class TreeNode {
 			} else {
 				leftNode.insert(insertValue);
 			} 
+			
+			alturaSae++;
+			
 		} else {
 			if (rightNode == null) {
 				rightNode = new TreeNode(insertValue);
 			} else {
 				rightNode.insert(insertValue);
 			} 
+			
+			alturaSad++;
 		}
+	}
+	
+	public int getFatorBalanceamento() {
+		return alturaSad - alturaSae;
 	}
 	
 	public TreeNode getLeftNode() {
